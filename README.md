@@ -678,8 +678,14 @@
   });
 
   // ── SUBMIT ──
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxOa6BKh9wIGv9IxFIwLPbQ2CyUswvROJ3FQ71B5S_X3SzOAD2uSY8SblTUap_DemF7/exec';
+
   function submitForm() {
     if (!validate()) return;
+
+    const btn = document.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = '⏳ Enviando…';
 
     const now = new Date();
     const fecha = now.toLocaleString('es-MX', {
@@ -696,11 +702,33 @@
       fecha
     };
 
-    records.unshift(record);
-    saveRecords(records);
-    renderTable();
-    clearForm();
-    showToast('✓ Notificación registrada correctamente');
+    // Enviar a Google Sheets
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(record)
+    })
+    .then(() => {
+      // Guardar también en local como respaldo
+      records.unshift(record);
+      saveRecords(records);
+      renderTable();
+      clearForm();
+      showToast('✓ Registrado en Google Sheets correctamente');
+    })
+    .catch(() => {
+      // Si falla la red, guardar solo en local
+      records.unshift(record);
+      saveRecords(records);
+      renderTable();
+      clearForm();
+      showToast('⚠ Sin red — guardado solo localmente');
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.innerHTML = '✚ Registrar notificación';
+    });
   }
 
   // ── CLEAR ──
