@@ -678,7 +678,7 @@
   });
 
   // ── SUBMIT ──
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxOa6BKh9wIGv9IxFIwLPbQ2CyUswvROJ3FQ71B5S_X3SzOAD2uSY8SblTUap_DemF7/exec';
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzLlFcDtrbVQu-fqXEpJubLsVRQNZQ7g-vplFS5qSjFENcNVMWqDZXlU9d3qRmw5CJc/exec';
 
   function submitForm() {
     if (!validate()) return;
