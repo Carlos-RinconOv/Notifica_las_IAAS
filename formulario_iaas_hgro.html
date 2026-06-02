@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +5,7 @@
 <title>Notificación IAAS — HGRO Orizaba</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap');
-
+ 
   :root {
     --bg: #f5f3ee;
     --surface: #ffffff;
@@ -25,9 +24,9 @@
     --amber: #92590a;
     --amber-light: #fef8ee;
   }
-
+ 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   body {
     background: var(--bg);
     font-family: 'DM Sans', sans-serif;
@@ -36,7 +35,7 @@
     min-height: 100vh;
     padding: 0 0 60px;
   }
-
+ 
   /* ── HEADER ── */
   .page-header {
     background: var(--accent);
@@ -87,14 +86,14 @@
     color: rgba(255,255,255,0.7);
     font-family: 'DM Mono', monospace;
   }
-
+ 
   /* ── LAYOUT ── */
   .container {
     max-width: 680px;
     margin: 0 auto;
     padding: 0 24px;
   }
-
+ 
   /* ── TABLA DE REGISTROS ── */
   .records-panel {
     background: var(--surface);
@@ -153,7 +152,7 @@
     color: white;
     border-color: var(--green);
   }
-
+ 
   .records-empty {
     padding: 32px 20px;
     text-align: center;
@@ -161,7 +160,7 @@
     font-size: 13px;
   }
   .records-empty span { display: block; font-size: 28px; margin-bottom: 8px; }
-
+ 
   .records-table {
     width: 100%;
     border-collapse: collapse;
@@ -187,7 +186,7 @@
   }
   .records-table tr:last-child td { border-bottom: none; }
   .records-table tr:hover td { background: var(--surface2); }
-
+ 
   .td-cama {
     font-family: 'DM Mono', monospace;
     font-weight: 500;
@@ -225,7 +224,7 @@
     line-height: 1;
   }
   .btn-delete:hover { background: var(--red-light); color: var(--red); }
-
+ 
   /* ── FORMULARIO ── */
   .form-card {
     background: var(--surface);
@@ -262,27 +261,27 @@
     color: var(--ink-muted);
     margin-top: 1px;
   }
-
+ 
   .form-body {
     padding: 24px 28px;
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
-
+ 
   .field-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
-
+ 
   .field {
     display: flex;
     flex-direction: column;
     gap: 6px;
   }
   .field.full { grid-column: 1 / -1; }
-
+ 
   label {
     font-size: 11px;
     font-weight: 600;
@@ -299,14 +298,14 @@
     background: var(--red);
     flex-shrink: 0;
   }
-
+ 
   .field-hint {
     font-size: 11px;
     color: var(--ink-dim);
     font-family: 'DM Mono', monospace;
     margin-top: -2px;
   }
-
+ 
   input[type="text"],
   input[type="number"],
   textarea {
@@ -324,7 +323,7 @@
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
-
+ 
   input:focus, textarea:focus {
     border-color: var(--border-focus);
     background: #ffffff;
@@ -337,13 +336,13 @@
   input.error:focus, textarea.error:focus {
     box-shadow: 0 0 0 3px rgba(192,57,43,0.1);
   }
-
+ 
   textarea {
     resize: vertical;
     min-height: 90px;
     line-height: 1.5;
   }
-
+ 
   .error-msg {
     font-size: 11px;
     color: var(--red);
@@ -352,7 +351,7 @@
     gap: 4px;
   }
   .error-msg.visible { display: flex; }
-
+ 
   /* ── TIMESTAMP ── */
   .timestamp-row {
     display: flex;
@@ -367,7 +366,7 @@
     font-family: 'DM Mono', monospace;
   }
   #timestamp-display { font-weight: 500; }
-
+ 
   /* ── SUBMIT ── */
   .form-footer {
     padding: 0 28px 24px;
@@ -395,7 +394,7 @@
   }
   .btn-submit:hover { background: #0f2540; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(26,58,92,0.3); }
   .btn-submit:active { transform: translateY(0); }
-
+ 
   .btn-clear {
     background: none;
     border: 1.5px solid var(--border);
@@ -409,7 +408,7 @@
     transition: all 0.15s;
   }
   .btn-clear:hover { border-color: var(--red); color: var(--red); }
-
+ 
   /* ── TOAST ── */
   .toast {
     position: fixed;
@@ -431,7 +430,7 @@
     gap: 8px;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
-
+ 
   /* ── FOOTER ── */
   .page-footer {
     text-align: center;
@@ -443,7 +442,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- HEADER -->
 <div class="page-header">
   <div class="container">
@@ -453,9 +452,9 @@
     <div class="header-badge">📋 Los datos se almacenan localmente y se exportan a CSV</div>
   </div>
 </div>
-
+ 
 <div class="container">
-
+ 
   <!-- PANEL DE REGISTROS -->
   <div class="records-panel">
     <div class="records-header">
@@ -487,7 +486,7 @@
       </table>
     </div>
   </div>
-
+ 
   <!-- FORMULARIO -->
   <div class="form-card">
     <div class="form-card-header">
@@ -497,15 +496,15 @@
         <div class="form-card-sub">Todos los campos marcados son obligatorios</div>
       </div>
     </div>
-
+ 
     <div class="form-body">
-
+ 
       <!-- TIMESTAMP -->
       <div class="timestamp-row">
         🕐 <span>Fecha y hora de notificación:</span>
         <span id="timestamp-display">—</span>
       </div>
-
+ 
       <!-- CAMA + NSS -->
       <div class="field-row">
         <div class="field">
@@ -521,7 +520,7 @@
           <span class="error-msg" id="err-nss">⚠ Debe tener exactamente 10 dígitos</span>
         </div>
       </div>
-
+ 
       <!-- NOMBRE -->
       <div class="field">
         <label><div class="required-dot"></div>Nombre completo del paciente</label>
@@ -529,7 +528,7 @@
         <input type="text" id="field-nombre" placeholder="Ej. González Martínez Juan" autocomplete="off">
         <span class="error-msg" id="err-nombre">⚠ Campo requerido</span>
       </div>
-
+ 
       <!-- TIPO DE INFECCIÓN -->
       <div class="field">
         <label><div class="required-dot"></div>Tipo de infección de sospecha</label>
@@ -537,9 +536,9 @@
         <textarea id="field-tipo" placeholder="Ej. Infección del tracto urinario asociada a catéter urinario permanente (ITUACU). Paciente con fiebre de 38.5°C y orina turbia…"></textarea>
         <span class="error-msg" id="err-tipo">⚠ Campo requerido</span>
       </div>
-
+ 
     </div>
-
+ 
     <div class="form-footer">
       <button class="btn-clear" onclick="clearForm()">Limpiar</button>
       <button class="btn-submit" onclick="submitForm()">
@@ -547,31 +546,31 @@
       </button>
     </div>
   </div>
-
+ 
   <div class="page-footer">
     HGRO · Jefatura de Salud Pública · Los datos no se envían a ningún servidor externo
   </div>
-
+ 
 </div>
-
+ 
 <!-- TOAST -->
 <div class="toast" id="toast">✓ Notificación registrada correctamente</div>
-
+ 
 <script>
   // ── STORAGE ──
   const STORAGE_KEY = 'iaas_hgro_registros';
-
+ 
   function loadRecords() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
     catch { return []; }
   }
-
+ 
   function saveRecords(records) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
   }
-
+ 
   let records = loadRecords();
-
+ 
   // ── TIMESTAMP en tiempo real ──
   function updateTimestamp() {
     const now = new Date();
@@ -583,25 +582,25 @@
   }
   updateTimestamp();
   setInterval(updateTimestamp, 1000);
-
+ 
   // ── RENDER TABLE ──
   function renderTable() {
     const badge = document.getElementById('count-badge');
     const empty = document.getElementById('records-empty');
     const wrapper = document.getElementById('records-table-wrapper');
     const tbody = document.getElementById('records-body');
-
+ 
     badge.textContent = records.length;
-
+ 
     if (records.length === 0) {
       empty.style.display = 'block';
       wrapper.style.display = 'none';
       return;
     }
-
+ 
     empty.style.display = 'none';
     wrapper.style.display = 'block';
-
+ 
     tbody.innerHTML = records.map((r, i) => `
       <tr>
         <td class="td-cama">${esc(r.cama)}</td>
@@ -613,42 +612,42 @@
       </tr>
     `).join('');
   }
-
+ 
   function esc(str) {
     return String(str)
       .replace(/&/g,'&amp;').replace(/</g,'&lt;')
       .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
-
+ 
   // ── VALIDACIÓN ──
   function validate() {
     let valid = true;
-
+ 
     const cama = document.getElementById('field-cama').value.trim();
     const nombre = document.getElementById('field-nombre').value.trim();
     const nssVal = document.getElementById('field-nss').value.trim();
     const tipo = document.getElementById('field-tipo').value.trim();
-
+ 
     // Cama
     setError('field-cama', 'err-cama', !cama);
     if (!cama) valid = false;
-
+ 
     // Nombre
     setError('field-nombre', 'err-nombre', !nombre);
     if (!nombre) valid = false;
-
+ 
     // NSS: exactamente 10 dígitos
     const nssOk = /^\d{10}$/.test(nssVal);
     setError('field-nss', 'err-nss', !nssOk);
     if (!nssOk) valid = false;
-
+ 
     // Tipo
     setError('field-tipo', 'err-tipo', !tipo);
     if (!tipo) valid = false;
-
+ 
     return valid;
   }
-
+ 
   function setError(fieldId, errId, hasError) {
     const field = document.getElementById(fieldId);
     const err = document.getElementById(errId);
@@ -660,7 +659,7 @@
       err.classList.remove('visible');
     }
   }
-
+ 
   // Live validation
   ['field-cama','field-nombre','field-nss','field-tipo'].forEach(id => {
     document.getElementById(id).addEventListener('input', () => {
@@ -677,18 +676,24 @@
       setError(id, errMap[id], !ok);
     });
   });
-
+ 
   // ── SUBMIT ──
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzLlFcDtrbVQu-fqXEpJubLsVRQNZQ7g-vplFS5qSjFENcNVMWqDZXlU9d3qRmw5CJc/exec';
+ 
   function submitForm() {
     if (!validate()) return;
-
+ 
+    const btn = document.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = '⏳ Enviando…';
+ 
     const now = new Date();
     const fecha = now.toLocaleString('es-MX', {
       year:'numeric', month:'2-digit', day:'2-digit',
       hour:'2-digit', minute:'2-digit', second:'2-digit',
       hour12:false, timeZone:'America/Mexico_City'
     });
-
+ 
     const record = {
       cama:   document.getElementById('field-cama').value.trim().toUpperCase(),
       nombre: document.getElementById('field-nombre').value.trim(),
@@ -696,14 +701,36 @@
       tipo:   document.getElementById('field-tipo').value.trim(),
       fecha
     };
-
-    records.unshift(record);
-    saveRecords(records);
-    renderTable();
-    clearForm();
-    showToast('✓ Notificación registrada correctamente');
+ 
+    // Enviar a Google Sheets
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(record)
+    })
+    .then(() => {
+      // Guardar también en local como respaldo
+      records.unshift(record);
+      saveRecords(records);
+      renderTable();
+      clearForm();
+      showToast('✓ Registrado en Google Sheets correctamente');
+    })
+    .catch(() => {
+      // Si falla la red, guardar solo en local
+      records.unshift(record);
+      saveRecords(records);
+      renderTable();
+      clearForm();
+      showToast('⚠ Sin red — guardado solo localmente');
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.innerHTML = '✚ Registrar notificación';
+    });
   }
-
+ 
   // ── CLEAR ──
   function clearForm() {
     ['field-cama','field-nombre','field-nss','field-tipo'].forEach(id => {
@@ -713,7 +740,7 @@
     });
     document.getElementById('field-cama').focus();
   }
-
+ 
   // ── DELETE ──
   function deleteRecord(index) {
     if (!confirm('¿Eliminar este registro?')) return;
@@ -721,14 +748,14 @@
     saveRecords(records);
     renderTable();
   }
-
+ 
   // ── EXPORT CSV ──
   function exportCSV() {
     if (records.length === 0) {
       alert('No hay registros para exportar.');
       return;
     }
-
+ 
     const headers = ['Cama','Nombre','NSS','Tipo de Infección de Sospecha','Fecha y Hora de Notificación'];
     const rows = records.map(r => [
       `"${r.cama}"`,
@@ -737,7 +764,7 @@
       `"${r.tipo.replace(/"/g,'""')}"`,
       `"${r.fecha}"`
     ].join(','));
-
+ 
     const csv = '\uFEFF' + [headers.join(','), ...rows].join('\r\n');
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
@@ -749,7 +776,7 @@
     URL.revokeObjectURL(url);
     showToast('⬇ CSV exportado correctamente');
   }
-
+ 
   // ── TOAST ──
   function showToast(msg) {
     const t = document.getElementById('toast');
@@ -757,7 +784,7 @@
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 3000);
   }
-
+ 
   // ── INIT ──
   renderTable();
 </script>
